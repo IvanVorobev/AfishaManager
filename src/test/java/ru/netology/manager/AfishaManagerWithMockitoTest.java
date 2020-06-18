@@ -1,6 +1,5 @@
 package ru.netology.manager;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -17,19 +16,19 @@ public class AfishaManagerWithMockitoTest {
     AfishaRepository repository;
 
     @InjectMocks
-    private AfishaManager manager;
-    private PurchaseItem first = new PurchaseItem(1, 1, "Bloodshot", "Action", "Url1");
-    private PurchaseItem second = new PurchaseItem(2, 2, "Forward", "Cartoon", "Url2");
-    private PurchaseItem third = new PurchaseItem(3, 3, "HotelBelgrad", "Comedy", "Url3");
-    private PurchaseItem fourth = new PurchaseItem(4, 4, "Gentelmens", "Action", "Url4");
-    private PurchaseItem fifth = new PurchaseItem(5, 5, "The invisible man", "Horror", "Url5");
-    private PurchaseItem sixth = new PurchaseItem(6, 6, "Trolls", "Cartoon", "Url6");
-    private PurchaseItem seventh = new PurchaseItem(7, 7, "Number 1", "Comedy", "Url7");
-    private PurchaseItem eighth = new PurchaseItem(8, 8, "Pinocchio", "Fantasy", "Url8");
-    private PurchaseItem ninth = new PurchaseItem(9, 9, "Bad boys", "Action", "Url9");
-    private PurchaseItem tenth = new PurchaseItem(10, 10, "Lighthouse", "Horror", "Url10");
-    private PurchaseItem eleventh = new PurchaseItem(11, 11, "Just Mercy", "Drama", "Url11");
-    private PurchaseItem twelveth = new PurchaseItem(12, 12, "Fairy", "Fantasy", "Url12");
+    AfishaManager manager = new AfishaManager(repository);
+    PurchaseItem first = new PurchaseItem(1, 1, "Bloodshot", "Action", "Url1");
+    PurchaseItem second = new PurchaseItem(2, 2, "Forward", "Cartoon", "Url2");
+    PurchaseItem third = new PurchaseItem(3, 3, "HotelBelgrad", "Comedy", "Url3");
+    PurchaseItem fourth = new PurchaseItem(4, 4, "Gentelmens", "Action", "Url4");
+    PurchaseItem fifth = new PurchaseItem(5, 5, "The invisible man", "Horror", "Url5");
+    PurchaseItem sixth = new PurchaseItem(6, 6, "Trolls", "Cartoon", "Url6");
+    PurchaseItem seventh = new PurchaseItem(7, 7, "Number 1", "Comedy", "Url7");
+    PurchaseItem eighth = new PurchaseItem(8, 8, "Pinocchio", "Fantasy", "Url8");
+    PurchaseItem ninth = new PurchaseItem(9, 9, "Bad boys", "Action", "Url9");
+    PurchaseItem tenth = new PurchaseItem(10, 10, "Lighthouse", "Horror", "Url10");
+    PurchaseItem eleventh = new PurchaseItem(11, 11, "Just Mercy", "Drama", "Url11");
+    PurchaseItem twelveth = new PurchaseItem(12, 12, "Fairy", "Fantasy", "Url12");
 
     @Test
     public void shouldSave() {
@@ -64,7 +63,7 @@ public class AfishaManagerWithMockitoTest {
         PurchaseItem[] returned = new PurchaseItem[]{first, second, third, fourth, fifth, sixth, seventh};
         doReturn(returned).when(repository).findAll();
 
-        AfishaManager manager = new AfishaManager(repository, 5);
+        AfishaManager manager = new AfishaManager(repository,5);
 
         PurchaseItem[] actual = manager.getFilm();
         PurchaseItem[] expected = new PurchaseItem[]{seventh, sixth, fifth, fourth, third};
@@ -80,7 +79,7 @@ public class AfishaManagerWithMockitoTest {
         PurchaseItem[] returned = new PurchaseItem[]{first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh, twelveth};
         doReturn(returned).when(repository).findAll();
 
-        AfishaManager manager = new AfishaManager(repository, 11);
+        AfishaManager manager = new AfishaManager(repository,11);
 
         PurchaseItem[] actual = manager.getFilm();
         PurchaseItem[] expected = new PurchaseItem[]{twelveth, eleventh, tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second};

@@ -5,14 +5,15 @@ import ru.netology.repository.AfishaRepository;
 
 public class AfishaManager {
     private AfishaRepository repository;
-    private int presetAfishaLength = 10;
 
-    public AfishaManager() {
-        this.repository = repository;
-    }
+    private int presetAfishaLength = 10;
 
     public AfishaManager(int presetAfishaLength) {
         this.presetAfishaLength = presetAfishaLength;
+    }
+
+    public AfishaManager(AfishaRepository repository) {
+        this.repository = repository;
     }
 
     public AfishaManager(AfishaRepository repository, int presetAfishaLength) {
