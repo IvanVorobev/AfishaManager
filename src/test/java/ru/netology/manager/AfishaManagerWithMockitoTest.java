@@ -42,6 +42,8 @@ public class AfishaManagerWithMockitoTest {
         PurchaseItem[] actual = manager.getFilm();
         PurchaseItem[] expected = new PurchaseItem[]{thirteenth, twelveth, eleventh, tenth, ninth, eighth, seventh, sixth, fifth, fourth};
 
+        assertArrayEquals(expected, actual);
+
         verify(repository).findAll();
     }
 

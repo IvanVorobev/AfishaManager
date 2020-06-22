@@ -1,8 +1,14 @@
 package ru.netology.manager;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import ru.netology.domain.PurchaseItem;
 import ru.netology.repository.AfishaRepository;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class AfishaManager {
     private AfishaRepository repository;
 
@@ -14,11 +20,6 @@ public class AfishaManager {
 
     public AfishaManager(AfishaRepository repository) {
         this.repository = repository;
-    }
-
-    public AfishaManager(AfishaRepository repository, int presetAfishaLength) {
-        this.repository = repository;
-        this.presetAfishaLength = presetAfishaLength;
     }
 
     public void addFilm(PurchaseItem item) {
